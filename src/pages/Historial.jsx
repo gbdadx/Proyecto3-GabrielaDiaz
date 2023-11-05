@@ -3,6 +3,9 @@ import Footer from "../components/Footer";
 import HistorialButtons from "../components/HistorialButtons";
 import HistorialHeader from "../components/HistorialHeader";
 import HistorialTable from "../components/HistorialTable";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
 
 export default function Historial() {
   const historialJSON = localStorage.getItem("historialCotizaciones");

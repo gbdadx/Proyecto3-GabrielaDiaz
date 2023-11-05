@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import IndexHeader from "../components/IndexHeader";
 
-
 const alerta = (titulo, mensaje, icono) => {
   Swal.fire({
     icon: icono || "",
@@ -35,7 +34,6 @@ const toast = () => {
   }).showToast();
 };
 
-
 export default function Index() {
   const [selectPropiedad, setSelectPropiedad] = useState("");
   const [selectUbicacion, setSelectUbicacion] = useState("");
@@ -44,13 +42,12 @@ export default function Index() {
   const [factorUbi, setFactorUbi] = useState(0);
   const [factorTipo, setFactorTipo] = useState(0);
   const [historialCotizaciones, setHistorialCotizaciones] = useState([]);
-  
+
   const navigate = useNavigate();
-  
-  const btnCotizar = document.querySelector("button.button.button-outline")
-  const btnEnviar = document.querySelector("span.guardar")
-  
-  
+
+  const btnCotizar = document.querySelector("button.button.button-outline");
+  const btnEnviar = document.querySelector("span.guardar");
+
   function borrarSeleccion() {
     // Restablece los valores al original
     setSelectPropiedad("..."); // Establece la opción predeterminada
@@ -87,8 +84,7 @@ export default function Index() {
     // Establecer los valores iniciales en '...' al cargar el componente
     setSelectPropiedad("...");
     setSelectUbicacion("...");
-  
-    }, []);
+  }, []);
 
   useEffect(() => {
     if (historialParseado) {
@@ -100,55 +96,61 @@ export default function Index() {
   }, []);
 
   /**cotizacion  */
-  const loader = ()=> `<img src="images/Ellipsis-1.1s-44px.gif" width="40px">`
+  const loader = () => `<img src="images/Ellipsis-1.1s-44px.gif" width="40px">`;
   function datosCompletos() {
-    return selectPropiedad !== '...' && selectUbicacion !== '...' && inputMetros2 >= 20;
+    return (
+      selectPropiedad !== "..." &&
+      selectUbicacion !== "..." &&
+      inputMetros2 >= 20
+    );
   }
-function realizarCotizacion() {
-  if (datosCompletos()) {
-    btnCotizar.innerHTML = loader();
-    setTimeout(cotizar, 2500); // Esperar 2.5 segundos y luego cotizar
-  } else {
-    alerta("", "Debes completar todos los datos en pantalla.", "warning");
+  function realizarCotizacion() {
+    if (datosCompletos()) {
+      btnCotizar.innerHTML = loader();
+      setTimeout(cotizar, 2500); // Esperar 2.5 segundos y luego cotizar
+    } else {
+      alerta("", "Debes completar todos los datos en pantalla.", "warning");
+    }
   }
-}
 
-function cotizar() {
-  // Cotización
-  const costoM2 = 34.86;
-  const metros2 = inputMetros2;
-  const poliza = (costoM2 * metros2 * factorUbi * factorTipo).toFixed(2);
-  setValorPoliza(poliza);
+  function cotizar() {
+    // Cotización
+    const costoM2 = 34.86;
+    const metros2 = inputMetros2;
+    const poliza = (costoM2 * metros2 * factorUbi * factorTipo).toFixed(2);
+    setValorPoliza(poliza);
 
-  // Crear un objeto de cotización
-  const cotizacion = {
-    fechaCotizacion: new Date().toLocaleString(),
-    propiedad: selectPropiedad,
-    ubicacion: selectUbicacion,
-    metrosCuadrados: inputMetros2,
-    poliza: poliza,
-  };
+    // Crear un objeto de cotización
+    const cotizacion = {
+      fechaCotizacion: new Date().toLocaleString(),
+      propiedad: selectPropiedad,
+      ubicacion: selectUbicacion,
+      metrosCuadrados: inputMetros2,
+      poliza: poliza,
+    };
 
-  // Actualizar el estado con la nueva cotización
-  setHistorialCotizaciones([...historialCotizaciones, cotizacion]);
+    // Actualizar el estado con la nueva cotización
+    setHistorialCotizaciones([...historialCotizaciones, cotizacion]);
 
-  alerta("", "Cotización realizada con éxito.", "success");
+    alerta("", "Cotización realizada con éxito.", "success");
 
-  btnEnviar.classList.remove("ocultar");
-  btnCotizar.innerText = "cotizar";
-}
-
+    btnEnviar.classList.remove("ocultar");
+    btnCotizar.innerText = "cotizar";
+  }
 
   function guardarEnHistorial() {
-    if(datosCompletos()){
-        localStorage.setItem("historialCotizaciones",JSON.stringify(historialCotizaciones));        
-    alerta("", "Historial guardado exitosamente");
-    } else{
-        alerta("", "Debes completar todos los datos en pantalla..", "warning");}
+    if (datosCompletos()) {
+      localStorage.setItem(
+        "historialCotizaciones",
+        JSON.stringify(historialCotizaciones)
+      );
+      alerta("", "Historial guardado exitosamente");
+    } else {
+      alerta("", "Debes completar todos los datos en pantalla..", "warning");
     }
-  
+  }
 
-  function  alerta (titulo, mensaje, icono) {
+  function alerta(titulo, mensaje, icono) {
     Swal.fire({
       icon: icono || "",
       title: titulo || "",
@@ -172,56 +174,59 @@ function cotizar() {
     }).showToast();
   }
 
-  console.log({selectPropiedad})
-  console.log({selectUbicacion})
-  console.log({inputMetros2})
+  console.log({ selectPropiedad });
+  console.log({ selectUbicacion });
+  console.log({ inputMetros2 });
 
   return (
     <>
-     <IndexHeader/>
-    <main>
-   
-      <div className="center div-cotizador">
-        <div className="inputs">
-          <IndexInputs
-            selectPropiedad={selectPropiedad}
-            handlePropiedadChange={handlePropiedadChange}
-            datosPropiedad={datosPropiedad}
-            selectUbicacion={selectUbicacion}
-            handleUbicacionChange={handleUbicacionChange}
-            datosUbicacion={datosUbicacion}
-            inputMetros2={inputMetros2}
-            setInputMetros2={setInputMetros2}
-          />
-        </div>
-        <>
-          <div className="center separador">
-            <button className="button button-outline" onClick={realizarCotizacion}>
-              Cotizar
-            </button>
+      <IndexHeader />
+      <main>
+        <div className="center div-cotizador">
+          <div className="inputs">
+            <IndexInputs
+              selectPropiedad={selectPropiedad}
+              handlePropiedadChange={handlePropiedadChange}
+              datosPropiedad={datosPropiedad}
+              selectUbicacion={selectUbicacion}
+              handleUbicacionChange={handleUbicacionChange}
+              datosUbicacion={datosUbicacion}
+              inputMetros2={inputMetros2}
+              setInputMetros2={setInputMetros2}
+            />
           </div>
-          <div className="center separador">
-            <p className="importe">
-              Precio estimado: $ <span type="button" id="valorPoliza">{valorPoliza}</span>
-              <span
-                className="guardar"
-                title="Guardar en historial"
-                onClick={guardarEnHistorial}
+          <>
+            <div className="center separador">
+              <button
+                className="button button-outline"
+                onClick={realizarCotizacion}
               >
-                💾
-              </span>
-            </p>
-          </div>
-          <IndexButtons
-            borrarSeleccion={borrarSeleccion}
-            guardarEnHistorial={guardarEnHistorial}
-          />
-        </>
-      </div>
-    </main>
-    <Footer />
-      </>
-
+                Cotizar
+              </button>
+            </div>
+            <div className="center separador">
+              <p className="importe">
+                Precio estimado: ${" "}
+                <span type="button" id="valorPoliza">
+                  {valorPoliza}
+                </span>
+                <span
+                  className="guardar"
+                  title="Guardar en historial"
+                  onClick={guardarEnHistorial}
+                >
+                  💾
+                </span>
+              </p>
+            </div>
+            <IndexButtons
+              borrarSeleccion={borrarSeleccion}
+              guardarEnHistorial={guardarEnHistorial}
+            />
+          </>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
-  
 }

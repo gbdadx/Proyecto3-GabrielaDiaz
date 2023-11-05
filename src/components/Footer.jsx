@@ -4,14 +4,14 @@ const FooterWrapper = styled.footer`
   width: 100vw;
   height: 7vh;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: white;
   font-weight: 800;
-  position: absolute;
-  margin-top: 0px;
-  padding-top: 0px;
-  left: 0%;
-  top: 108%;
+  display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 `;
 
 export default function Footer() {

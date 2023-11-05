@@ -2,7 +2,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
 import Historial from "./pages/Historial";
-import Footer from "./components/Footer";
 export default function App() {
   return (
     <>
@@ -13,7 +12,7 @@ export default function App() {
           <Route path="/*" element={<h1>Page not found - error 404</h1>} />
         </Routes>
       </BrowserRouter>
-      <Footer />
+    
     </>
   );
 }

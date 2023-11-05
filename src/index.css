@@ -3,17 +3,30 @@
 @import url('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
 
 * {
+    box-sizing: border-box;
     font-family:'Roboto', Arial, Helvetica, sans-serif;
 }
+
 body{
-  }
-html {
-    min-height: 100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;   
+    /* background*/
     background-image: url(../images/lluvia.gif);
     background-position: center;
+    background-attachment: fixed;
     background-size: cover;
 }
-
+main{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
 .center {
     text-align: center;
 }
@@ -30,12 +43,13 @@ label {
 
 .div-cotizador {
     margin: auto;
-    max-width: 900px;
-    min-height: 50vh;
+    width: 70vw;
+    height:fit-content;
     background-color: white;
-    
-    /* margin-left: 5%;
-    margin-right: 5%; */
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
     border-color: whitesmoke;
     box-shadow: 26px 28px 15px -8px rgba(0,0,0,0.15);
@@ -61,10 +75,7 @@ div.historial span {
     font-size: xx-large;
 }
 
-select, input {
-    min-width: 50% !important;
-    width: 70% !important;
-}
+
 
 .separador {
     margin: 20px;
@@ -107,5 +118,36 @@ button:active {
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    margin-top: 2rem;
     margin-bottom: 0;
+    height: 4rem;
 }
+#botonesMi{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    width:fit-content; 
+}
+.botonesMi{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:fit-content;
+}
+.inputs{
+    width:100%;
+}
+/* Agrega la regla CSS para los selectores */
+select, input, option {
+    width: 80% !important; /* Cambia el ancho al 80% */
+}
+
+.irAhistorial{
+    cursor:pointer;
+}
+.irAhistorial:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;}

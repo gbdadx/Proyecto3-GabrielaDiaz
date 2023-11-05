@@ -1,4 +1,4 @@
-
+import "/src/index.css";
 export default function IndexInputs(props) {
   let {
     selectPropiedad,
@@ -13,14 +13,15 @@ export default function IndexInputs(props) {
 
 
   return (
-    <>
+    <div>
       <label htmlFor="propiedad">Selecciona el tipo de propiedad</label>
       <select required
         value={selectPropiedad || ""}
         id="propiedad"
         onChange={handlePropiedadChange}
+        className="ancho-80" // Agrega la clase aquí
       >
-        <option disabled>...</option>
+        <option selected>...</option>
         {datosPropiedad.map(
           (
             propiedad,
@@ -36,9 +37,11 @@ export default function IndexInputs(props) {
       <label htmlFor="ubicacion">Selecciona su ubicación</label>
       <select required 
         value={selectUbicacion || ""}
-        id="propiedad"
+        id="ubicacion"
         onChange={handleUbicacionChange}
+        className="ancho-80" // Agrega la clase aquí
       >
+        <option selected >...</option>
         {datosUbicacion.map((ubicacion, index) => (
           <option key={index} value={ubicacion.tipo}>
             {ubicacion.tipo}
@@ -55,8 +58,9 @@ export default function IndexInputs(props) {
         max="500"
         step="1"
         onChange={(e) => setInputMetros2(e.target.value)}
+        className="ancho-80" // Agrega la clase aquí
         
       />
-    </>
+    </div>
   );
 }

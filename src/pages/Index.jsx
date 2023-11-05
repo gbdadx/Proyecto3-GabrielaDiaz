@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import "/src/index.css";
-import { datosPropiedad, datosUbicacion } from "./datosJson";
 import IndexButtons from "../components/IndexButtons";
 import IndexInputs from "../components/IndexInputs";
 import Swal from "sweetalert2";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
-import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import IndexHeader from "../components/IndexHeader";
 
@@ -34,7 +32,7 @@ const toast = () => {
   }).showToast();
 };
 
-export default function Index() {
+export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   const [selectPropiedad, setSelectPropiedad] = useState("");
   const [selectUbicacion, setSelectUbicacion] = useState("");
   const [inputMetros2, setInputMetros2] = useState(20);
@@ -42,8 +40,9 @@ export default function Index() {
   const [factorUbi, setFactorUbi] = useState(0);
   const [factorTipo, setFactorTipo] = useState(0);
   const [historialCotizaciones, setHistorialCotizaciones] = useState([]);
+  
 
-  const navigate = useNavigate();
+  
 
   const btnCotizar = document.querySelector("button.button.button-outline");
   const btnEnviar = document.querySelector("span.guardar");
@@ -58,7 +57,16 @@ export default function Index() {
     setFactorUbi(0);
     setHistorialCotizaciones([]);
   }
-
+  if (!datosPropiedad || !datosUbicacion)  {
+    return (
+      <div className="loader">
+        <p>Loading data...</p>
+        <p>
+          <img src="images/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
+        </p>
+      </div>
+    );
+  }
   const historialGuardado = localStorage.getItem("historialCotizaciones");
   const historialParseado = JSON.parse(historialGuardado);
 

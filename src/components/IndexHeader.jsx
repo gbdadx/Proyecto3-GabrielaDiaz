@@ -7,22 +7,31 @@ const HeaderWrapper = styled.header`
   text-align: center;
   color: white;
   font-weight: 800;
-  display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    margin-top:2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 2rem;
 `;
 
 export default function IndexHeader() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <HeaderWrapper>
-    <header className="header">
-    <h1 className="center separador">Seguros del hogar <span className="irAhistorial" title="Ir a historial" onClick={() => navigate('/historial')}>🏡</span></h1>
-    </header>
+      <header className="header">
+        <h1 className="center separador">
+          Seguros del hogar{" "}
+          <span
+            className="irAhistorial"
+            title="Ir a historial"
+            onClick={() => navigate("/historial")}
+          >
+            🏡
+          </span>
+        </h1>
+      </header>
     </HeaderWrapper>
-  )
+  );
 }

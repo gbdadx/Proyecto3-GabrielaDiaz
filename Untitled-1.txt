@@ -1,0 +1,1 @@
+[{"fechaCotizacion":"2/11/2023, 22:27:40","propiedad":"Casa","ubicacion":"Costa Atlántica","metrosCuadrados":20,"poliza":"980.33"}]

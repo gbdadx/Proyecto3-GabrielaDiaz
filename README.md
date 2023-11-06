@@ -10,7 +10,7 @@ Este proyecto es parte del trabajo práctico integrador del curso de React en la
 - Toastify
 - React Router
 - Styled Components
-- CSS
+- CSS - Milligram
 - JavaScript
 
 ## Descripción del Proyecto

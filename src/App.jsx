@@ -8,9 +8,10 @@ export default function App() {
   const [data, setData] = useState([]);
   const [datosPropiedad, setDatosPropiedad] = useState([]);
   const [datosUbicacion, setDatosUbicacion] = useState([]);
+  const rutaRelativa = "./src/datos.json";
 
   useEffect(() => {
-    Axios.get("/src/datos.json")
+    Axios.get("./src/datos.json")
       .then((response) => {
         setData(response.data);
 

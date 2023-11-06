@@ -33,6 +33,7 @@ export default function App() {
     fetchData();
   }, []);
 
+
   // You can verify the contents of 'data' here.
   console.log("data:", data);
   console.log("datosPropiedad:", datosPropiedad);

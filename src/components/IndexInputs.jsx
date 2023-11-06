@@ -21,7 +21,7 @@ export default function IndexInputs(props) {
         onChange={handlePropiedadChange}
         className="ancho-80" // Agrega la clase aquí
       >
-        <option selected>...</option>
+        <option defaultValue={''}>...</option>
         {datosPropiedad.map(
           (
             propiedad,
@@ -41,7 +41,7 @@ export default function IndexInputs(props) {
         onChange={handleUbicacionChange}
         className="ancho-80" // Agrega la clase aquí
       >
-        <option selected >...</option>
+        <option defaultValue={''} >...</option>
         {datosUbicacion.map((ubicacion, index) => (
           <option key={index} value={ubicacion.tipo}>
             {ubicacion.tipo}

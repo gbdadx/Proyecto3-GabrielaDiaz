@@ -59,7 +59,7 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   }
   if (!datosPropiedad || !datosUbicacion)  {
     return (
-      <div className="loader">
+      <div className="loader" style="zIndex:10">
         <p>Loading data...</p>
         <p>
           <img src="images/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />

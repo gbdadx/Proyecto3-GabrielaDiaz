@@ -41,7 +41,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Index datosPropiedad={datosPropiedad} datosUbicacion={datosUbicacion} />} />
           <Route path="/historial" element={<Historial />} />
-          <Route path="/*" element={<h1>Page not found - error 404</h1>} />
+          <Route path="/*" element={<h1 style={{ display: 'flex', flexDirection: 'row', justifyContent:'center', alignItems:'center', paddingTop:'10rem' }}>Page not found - error 404</h1>} />
         </Routes>
       </BrowserRouter>
     </>

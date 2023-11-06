@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Historial from "./pages/Historial";
-import Index from "./pages/Index";
+import Index from "./Index";
 
 export default function App() {
   const [data, setData] = useState([]);

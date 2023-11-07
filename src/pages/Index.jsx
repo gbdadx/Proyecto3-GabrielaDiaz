@@ -40,9 +40,6 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   const [factorUbi, setFactorUbi] = useState(0);
   const [factorTipo, setFactorTipo] = useState(0);
   const [historialCotizaciones, setHistorialCotizaciones] = useState([]);
-  
-
-  
 
   const btnCotizar = document.querySelector("button.button.button-outline");
   const btnEnviar = document.querySelector("span.guardar");
@@ -60,9 +57,9 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   if (!datosPropiedad || !datosUbicacion)  {
     return (
       <div className="loader" style="zIndex:10">
-        <p>Loading data...</p>
+        <p style="color:white, fontSize:'3rem, fontWeight:'bold', zIndex:'2000';">Loading data...</p>
         <p>
-          <img src="images/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
+          <img src="../images/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
         </p>
       </div>
     );
@@ -104,7 +101,7 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   }, []);
 
   /**cotizacion  */
-  const loader = () => `<img src="images/Ellipsis-1.1s-44px.gif" width="40px">`;
+  const loader = () => `<img src="../images/Ellipsis-1.1s-44px.gif" width="40px">`;
   function datosCompletos() {
     return (
       selectPropiedad !== "..." &&

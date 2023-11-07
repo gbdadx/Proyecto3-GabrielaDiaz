@@ -12,7 +12,7 @@ export default function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await Axios.get("https://mocki.io/v1/dd08ae03-16ff-4eb3-9020-470b310273ba");
+        const response = await Axios.get("https://apimocha.com/proyecto3/example");
         setData(response.data);
 
         const datosPropiedad = response.data

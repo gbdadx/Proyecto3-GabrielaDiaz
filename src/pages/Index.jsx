@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import "/src/index.css";
-import IndexButtons from "./components/IndexButtons";
-import IndexInputs from "./components/IndexInputs";
+import IndexButtons from "../components/IndexButtons";
+import IndexInputs from "../components/IndexInputs";
 import Swal from "sweetalert2";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
-import Footer from "./components/Footer";
-import IndexHeader from "./components/IndexHeader";
+import Footer from "../components/Footer";
+import IndexHeader from "../components/IndexHeader";
 
 const alerta = (titulo, mensaje, icono) => {
   Swal.fire({

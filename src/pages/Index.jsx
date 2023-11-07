@@ -62,7 +62,7 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
       <div className="loader" style="zIndex:10">
         <p>Loading data...</p>
         <p>
-          <img src="images/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
+          <img src="../images/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
         </p>
       </div>
     );

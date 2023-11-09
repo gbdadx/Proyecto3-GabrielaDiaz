@@ -59,7 +59,7 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
       <div className="loader" style="zIndex:10">
         <p style="color:white, fontSize:'3rem, fontWeight:'bold', zIndex:'2000';">Loading data...</p>
         <p>
-          <img src="./Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
+          <img src="public/Ellipsis-1.1s-44px.gif" alt="elipsis" className="ellipsis" width="5rem" />
         </p>
       </div>
     );
@@ -101,7 +101,7 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   }, []);
 
   /**cotizacion  */
-  const loader = () => `<img src="./Ellipsis-1.1s-44px.gif" width="40px">`;
+  const loader = () => `<img src="public/Ellipsis-1.1s-44px.gif" width="40px">`;
   function datosCompletos() {
     return (
       selectPropiedad !== "..." &&

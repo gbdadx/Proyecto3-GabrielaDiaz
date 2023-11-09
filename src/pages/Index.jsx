@@ -101,7 +101,8 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   }, []);
 
   /**cotizacion  */
-  const loader = () => `<img src="public/Ellipsis.gif" width="40px">`;
+  const loader = () => `<img src="/Ellipsis.gif" width="40px">`;
+
   function datosCompletos() {
     return (
       selectPropiedad !== "..." &&

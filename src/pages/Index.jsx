@@ -8,30 +8,6 @@ import "toastify-js/src/toastify.css";
 import Footer from "../components/Footer";
 import IndexHeader from "../components/IndexHeader";
 
-const alerta = (titulo, mensaje, icono) => {
-  Swal.fire({
-    icon: icono || "",
-    title: titulo || "",
-    text: mensaje,
-    showConfirmButton: false,
-    timer: 3500,
-    width: "15rem",
-  });
-};
-
-const toast = () => {
-  Toastify({
-    text: "Cotización guardada.",
-    duration: 4000,
-    newWindow: true,
-    gravity: "top",
-    position: "right",
-    style: {
-      background: "CornflowerBlue",
-    },
-  }).showToast();
-};
-
 export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   const [selectPropiedad, setSelectPropiedad] = useState("");
   const [selectUbicacion, setSelectUbicacion] = useState("");
@@ -44,6 +20,29 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   const btnCotizar = document.querySelector("button.button.button-outline");
   const btnEnviar = document.querySelector("span.guardar");
 
+  function alerta(titulo, mensaje, icono) {
+    Swal.fire({
+      icon: icono || "",
+      title: titulo || "",
+      text: mensaje,
+      showConfirmButton: false,
+      timer: 3500,
+      width: "15rem",
+    });
+  }
+
+  function toast() {
+    Toastify({
+      text: "Cotización guardada.",
+      duration: 4000,
+      newWindow: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "CornflowerBlue",
+      },
+    }).showToast();
+  }
   function borrarSeleccion() {
     // Restablece los valores al original
     setSelectPropiedad("..."); // Establece la opción predeterminada
@@ -120,13 +119,11 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
   }
 
   function cotizar() {
-    // Cotización
     const costoM2 = 34.86;
     const metros2 = inputMetros2;
     const poliza = (costoM2 * metros2 * factorUbi * factorTipo).toFixed(2);
     setValorPoliza(poliza);
 
-    // Crear un objeto de cotización
     const cotizacion = {
       fechaCotizacion: new Date().toLocaleString(),
       propiedad: selectPropiedad,
@@ -156,29 +153,6 @@ export default function IndexIndex({ datosPropiedad, datosUbicacion })  {
     }
   }
 
-  function alerta(titulo, mensaje, icono) {
-    Swal.fire({
-      icon: icono || "",
-      title: titulo || "",
-      text: mensaje,
-      showConfirmButton: false,
-      timer: 3500,
-      width: "15rem",
-    });
-  }
-
-  function toast() {
-    Toastify({
-      text: "Cotización guardada.",
-      duration: 4000,
-      newWindow: true,
-      gravity: "top",
-      position: "right",
-      style: {
-        background: "CornflowerBlue",
-      },
-    }).showToast();
-  }
 
   console.log({ selectPropiedad });
   console.log({ selectUbicacion });

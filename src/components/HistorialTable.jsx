@@ -1,8 +1,8 @@
-import '/src/index.css';
 //HistorialTable.jsx
+import '/src/index.css';
 
 export default function HistorialTable(props) {
-  const historial = props.historial || []; // Si historial es undefined, usa una matriz vacía
+  const historial = props.historial || []; // 
 
   return (
     <div style={{marginBottom:'1rem', paddingBottom:'3rem'}} >

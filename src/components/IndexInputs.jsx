@@ -19,13 +19,13 @@ export default function IndexInputs(props) {
         value={selectPropiedad || ""}
         id="propiedad"
         onChange={handlePropiedadChange}
-        className="ancho-80" // Agrega la clase aquí
+        className="ancho-80" 
       >
         <option defaultValue={''}>...</option>
         {datosPropiedad.map(
           (
             propiedad,
-            index // Agrega un índice como clave
+            index 
           ) => (
             <option key={index} value={propiedad.tipo}>
               {propiedad.tipo}
@@ -39,9 +39,10 @@ export default function IndexInputs(props) {
         value={selectUbicacion || ""}
         id="ubicacion"
         onChange={handleUbicacionChange}
-        className="ancho-80" // Agrega la clase aquí
+        className="ancho-80" 
       >
         <option defaultValue={''} >...</option>
+        
         {datosUbicacion.map((ubicacion, index) => (
           <option key={index} value={ubicacion.tipo}>
             {ubicacion.tipo}
@@ -58,8 +59,7 @@ export default function IndexInputs(props) {
         max="500"
         step="1"
         onChange={(e) => setInputMetros2(e.target.value)}
-        className="ancho-80" // Agrega la clase aquí
-        
+        className="ancho-80" 
       />
     </div>
   );
